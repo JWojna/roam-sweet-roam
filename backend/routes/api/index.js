@@ -1,13 +1,14 @@
 //^ backend/routes/api/index.js
 const router = require('express').Router();
+const sessionRouter = require('./session.js');
+const usersRouter = require('./users.js');
 //^ import restore user middleware
 const { restoreUser } = require('../../utils/auth.js');
-router.use(restoreUser);
 
-// //* test route
-// router.post('/test', function(req, res) {
-//   res.json({ requestBody: req.body });
-// });
+//^ router imports
+router.use(restoreUser);
+router.use('/session', sessionRouter);
+router.use('/users', usersRouter);
 
 // //* GET /api/require-auth
 // const { requireAuth } = require('../../utils/auth.js');
@@ -40,5 +41,10 @@ router.use(restoreUser);
 //   setTokenCookie(res, user);
 //   return res.json({ user: user });
 // });
+
+//* test route
+router.post('/test', function(req, res) {
+    res.json({ requestBody: req.body });
+});
 
 module.exports = router;
