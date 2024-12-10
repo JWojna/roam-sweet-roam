@@ -1,10 +1,10 @@
 //^ backend/routes/api/users.js
 const express = require('express')
 const bcrypt = require('bcryptjs');
-
+//* authorization
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
-
+//* validation
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation')
 
@@ -64,5 +64,5 @@ router.post(
     }
   );
 
-// ------ Exports -----
+// ------ Exports ----- //
 module.exports = router;
