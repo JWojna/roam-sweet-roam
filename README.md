@@ -4,7 +4,7 @@
 
 ![db-schema]
 
-[db-schema]: ./images/
+[db-schema]: ./images/Screenshot%202024-12-09%20210650.png
 
 ## API Documentation
 
